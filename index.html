@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UGD3_Manipulasi_DOM</title>
     <style>
-        /* Mengatur tampilan dasar agar scale tetap 100% */
         body, html {
             margin: 0;
             padding: 0;
@@ -15,7 +14,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Background Video: Wajib menyesuaikan ukuran laptop semua orang */
         #bgVideo {
             position: fixed;
             right: 0;
@@ -25,7 +23,7 @@
             width: auto;
             height: auto;
             z-index: -1000;
-            object-fit: cover; /* Memastikan video menutupi seluruh layar laptop */
+            object-fit: cover; 
         }
 
         .main-container {
@@ -33,10 +31,9 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.2); /* Memberi sedikit kontras pada video */
+            background: rgba(0, 0, 0, 0.2); 
         }
 
-        /* Form Sign In Card */
         .login-card {
             background-color: rgba(255, 255, 255, 0.9);
             padding: 40px;
@@ -72,7 +69,6 @@
             outline: none;
         }
 
-        /* Efek Hover pada tombol Sign In */
         #signInBtn {
             background-color: #007bff;
             color: white;
@@ -83,10 +79,9 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease; /* Transisi untuk efek hover */
+            transition: all 0.3s ease; 
         }
 
-        /* Wajib: Berikan efek hover */
         #signInBtn:hover {
             background-color: #0056b3;
             transform: translateY(-2px);
@@ -126,26 +121,25 @@
     </div>
 
     <script>
-        // Memutar musik setelah interaksi pertama pengguna
+       
         document.addEventListener('click', function() {
             const music = document.getElementById('bgMusic');
             music.play().catch(error => console.log("Autoplay dicegah browser"));
         }, { once: true });
 
-        // Logika Manipulasi DOM untuk Form
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah reload halaman
+            event.preventDefault(); 
 
             const user = document.getElementById('username').value.trim();
             const pass = document.getElementById('password').value.trim();
 
-            // Error Message: Username atau Password tidak boleh kosong
             if (user === "" || pass === "") {
                 alert("Username atau Password tidak boleh kosong."); 
-                // Jika terisi, arahkan ke akun Instagram pribadi
-                window.location.href = "https://www.instagram.com/acharius.maxi?igsh=MWQ2eWY0MHdhdGIwdQ=="; 
+    
+            window.location.href = "https://www.instagram.com/acharius.maxi?igsh=MWQ2eWY0MHdhdGIwdQ=="; 
             }
         });
     </script>
+
 </body>
 </html>
