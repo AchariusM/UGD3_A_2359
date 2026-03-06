@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UGD3_Manipulasi_DOM</title>
+    <title>KSI_thick_of_it</title>
     <style>
         body, html {
             margin: 0;
@@ -31,11 +31,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.2); 
+            background: rgba(0, 0, 0, 0.3); 
         }
 
         .login-card {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 12px;
             width: 350px;
@@ -69,6 +69,7 @@
             outline: none;
         }
 
+
         #signInBtn {
             background-color: #007bff;
             color: white;
@@ -86,6 +87,14 @@
             background-color: #0056b3;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,123,255,0.4);
+        }
+
+        #errorDisplay {
+            color: red;
+            font-size: 13px;
+            display: none;
+            margin-bottom: 15px;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -115,28 +124,31 @@
                     <input type="password" id="password" placeholder="Masukkan Password">
                 </div>
 
+                <p id="errorDisplay">Username atau Password tidak boleh kosong.</p>
+
                 <button type="submit" id="signInBtn">Sign In</button>
             </form>
         </div>
     </div>
 
     <script>
-       
         document.addEventListener('click', function() {
             const music = document.getElementById('bgMusic');
-            music.play().catch(error => console.log("Autoplay dicegah browser"));
+            music.play().catch(error => console.log("Musik butuh interaksi user"));
         }, { once: true });
 
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); 
-
+            event.preventDefault();
             const user = document.getElementById('username').value.trim();
             const pass = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('errorDisplay');
 
             if (user === "" || pass === "") {
-                alert("Username atau Password tidak boleh kosong."); 
-    
-            window.location.href = "https://www.instagram.com/acharius.maxi?igsh=MWQ2eWY0MHdhdGIwdQ=="; 
+                errorMsg.style.display = "block";
+            } 
+            else {
+                errorMsg.style.display = "none";
+                window.location.href = "https://www.instagram.com/acharius.maxi?igsh=MWQ2eWY0MHdhdGIwdQ=="; 
             }
         });
     </script>
